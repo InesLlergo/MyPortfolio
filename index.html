@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inés Llergo Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Roboto', sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== FONDO ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("https://i.pinimg.com/originals/1f/ff/f9/1ffff9f72f5a3ce1b90db0d1ba2603f6.jpg") center/cover no-repeat;
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.60);
+    z-index:-2;
+}
+
+/* ===== MENU ===== */
+
+.menu{
+
+    position:fixed;
+
+    top:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:28px;
+
+    z-index:1000;
+}
+
+.icon-btn{
+
+    position:relative;
+
+    text-decoration:none;
+}
+
+.icon-btn img{
+
+    width:48px;
+
+    transition:0.25s;
+}
+
+.icon-btn img:hover{
+
+    opacity:0.6;
+}
+
+.icon-btn span{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:-22px;
+
+    opacity:0;
+
+    transition:0.2s;
+
+    white-space:nowrap;
+
+    font-size:11px;
+
+    color:white;
+
+    font-weight:400;
+}
+
+.icon-btn:hover span{
+
+    opacity:1;
+}
+
+/* ===== SECCIONES ===== */
+
+.section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:120px 40px;
+}
+
+/* ===== ABOUT ===== */
+
+.about-container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:70px;
+
+    width:100%;
+
+    max-width:1200px;
+}
+
+.left-about{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-shrink:0;
+}
+
+.photo{
+
+    width:135px;
+
+    height:135px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    transition:0.25s;
+}
+
+.photo:hover{
+
+    opacity:0.7;
+}
+
+.cv-link{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:400;
+
+    transition:0.25s;
+}
+
+.cv-link:hover{
+
+    opacity:0.6;
+}
+
+.right-about{
+
+    max-width:650px;
+
+    text-align:left;
+}
+
+.about-title{
+
+    font-size:26px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+}
+
+.about-text{
+
+    font-size:14px;
+
+    line-height:2;
+
+    color:white;
+
+    max-width:620px;
+}
+
+/* ===== PROJECTS ===== */
+
+.projects-wrapper{
+
+    width:100%;
+
+    max-width:1100px;
+
+    text-align:center;
+}
+
+.projects-title{
+
+    font-size:28px;
+
+    margin-bottom:40px;
+}
+
+.projects-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:50px;
+
+    width:100%;
+}
+
+.project{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.project a{
+
+    width:100%;
+}
+
+.project img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:5px;
+
+    transition:0.25s;
+}
+
+.project img:hover{
+
+    opacity:0.6;
+}
+
+.project h3{
+
+    margin-top:18px;
+
+    margin-bottom:12px;
+
+    font-size:18px;
+
+    font-weight:500;
+}
+
+.project p{
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    max-width:320px;
+}
+
+/* ===== EXTRAS ===== */
+
+.extras-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+.extras-title{
+
+    font-size:28px;
+
+    margin-bottom:40px;
+}
+
+/* ===== GAME ===== */
+
+.game-container {
+
+    background: rgba(0, 0, 0, 0.88);
+
+    padding: 30px;
+
+    text-align: center;
+
+    width: 550px;
+
+    border-radius: 3px;
+}
+
+#hangman-svg {
+
+    width: 120px;
+
+    height: 120px;
+
+    margin-bottom: 10px;
+}
+
+line, circle {
+
+    stroke: #fff;
+
+    stroke-width: 4;
+
+    fill: none;
+
+    display: none;
+}
+
+.base {
+
+    display: block !important;
+}
+
+.word-display {
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    margin: 20px 0;
+
+    min-height: 30px;
+}
+
+.hearts {
+
+    color: #ff3b3b;
+}
+
+.game-container input {
+
+    background: black;
+
+    border: 1px solid white;
+
+    color: white;
+
+    padding: 10px;
+
+    font-family: 'Roboto', sans-serif;
+
+    width: 45px;
+
+    text-align: center;
+
+    outline: none;
+
+    border-radius:2px;
+}
+
+#restartBtn {
+
+    display: none;
+
+    background: white;
+
+    color: black;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    font-family: 'Roboto', sans-serif;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+
+    transition:0.25s;
+}
+
+#restartBtn:hover {
+
+    opacity:0.7;
+}
+
+.message {
+
+    font-size: 12px;
+
+    margin-top: 15px;
+
+    height: 40px;
+
+    line-height: 1.5;
+}
+
+/* ===== TECH ===== */
+
+.tech-wrapper{
+
+    width:100%;
+    max-width:1200px;
+
+    text-align:center;
+}
+
+.tech-title{
+
+    font-size:28px;
+
+    margin-bottom:55px;
+}
+
+.skills-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:55px;
+
+    align-items:center;
+}
+
+.skills-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:90px;
+
+    flex-wrap:wrap;
+}
+
+.second-row{
+
+    padding-left:70px;
+}
+
+.skill-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+.skill-icon{
+
+    width:78px;
+
+    height:78px;
+
+    object-fit:contain;
+
+    transition:0.25s;
+}
+
+.skill-icon:hover{
+
+    opacity:0.6;
+}
+
+.skill-item span{
+
+    font-size:13px;
+
+    color:white;
+}
+
+/* ===== CONTACT ===== */
+
+.contact-content{
+
+    text-align:center;
+}
+
+.contact-title{
+
+    font-size:28px;
+
+    margin-bottom:14px;
+}
+
+.contact-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:28px;
+
+    flex-wrap:wrap;
+
+    margin-top:12px;
+}
+
+.contact-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    line-height:1.2;
+
+    transition:0.25s;
+}
+
+.contact-link:hover{
+
+    opacity:0.6;
+}
+
+.contact-icon{
+
+    width:16px;
+
+    height:16px;
+
+    object-fit:contain;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+    .about-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:40px;
+    }
+
+    .right-about{
+
+        text-align:center;
+    }
+
+    .menu{
+
+        gap:15px;
+    }
+
+    .icon-btn img{
+
+        width:40px;
+    }
+
+    .project{
+
+        width:90%;
+    }
+
+    .game-container{
+
+        width:95%;
+    }
+
+    .skills-row{
+
+        gap:40px;
+    }
+
+    .second-row{
+        padding-left:0;
+    }
+
+    .skill-icon{
+
+        width:60px;
+        height:60px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== MENU ===== -->
+
+<div class="menu">
+
+    <a href="#about" class="icon-btn">
+        <img src="yosoy.png">
+        <span>About Me</span>
+    </a>
+
+    <a href="#extras" class="icon-btn">
+        <img src="controller.png">
+        <span>Extras</span>
+    </a>
+
+    <a href="#projects" class="icon-btn">
+        <img src="folder.png">
+        <span>Projects</span>
+    </a>
+
+    <a href="#tech" class="icon-btn">
+        <img src="computadora.png">
+        <span>Tech</span>
+    </a>
+
+    <a href="#contact" class="icon-btn">
+        <img src="celular.png">
+        <span>Contact</span>
+    </a>
+
+</div>
+
+<!-- ===== ABOUT ===== -->
+
+<section id="about" class="section">
+
+    <div class="about-container">
+
+        <div class="left-about">
+
+            <img src="myphoto.png" class="photo">
+
+            <a href="InesLlergoCV_1.pdf"
+               target="_blank"
+               class="cv-link">
+
+               View resume
+
+            </a>
+
+        </div>
+
+        <div class="right-about">
+
+            <h1 class="about-title">
+                Inés Llergo
+            </h1>
+
+            <div class="about-text">
+
+                I'm a mexican woman in STEM,
+                currently studying Software Engineering
+                at the Universidad Popular Autónoma
+                del Estado de Puebla.
+
+                <br><br>
+
+                I enjoy programming contests,
+                solving real-world problems,
+                and researching about social problems
+                presented in my society.
+
+                <br><br>
+
+                I love swimming,
+                playing OSU,
+                drawing kawai characters,
+                baking pastries,
+                and reading fiction novels.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== PROJECTS ===== -->
+
+<section id="projects" class="section">
+
+    <div class="projects-wrapper">
+
+        <h2 class="projects-title">
+            Projects
+        </h2>
+
+        <div class="projects-container">
+
+            <!-- ===== PROJECT 1 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/Line-Follower-Robot"
+                   target="_blank">
+
+                    <img src="follower.png">
+
+                </a>
+
+                <h3>Line Follower Robot</h3>
+
+                <p>
+                    Developed in C# for the Ingeniobot competition
+                    hosted at ITESM. Designed for autonomous line
+                    tracking and robotics experimentation.
+                </p>
+
+            </div>
+
+            <!-- ===== PROJECT 2 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/segundapruebadejarritos"
+                   target="_blank">
+
+                    <img src="transformations.png">
+
+                </a>
+
+                <h3>Transformations & Mexican Map Graphics</h3>
+
+                <p>
+                    Developed in C++ for the Advanced Programming
+                    course. Focused on graphics experimentation,
+                    geometric transformations, and spatial rendering.
+                </p>
+
+            </div>
+
+            <!-- ===== PROJECT 3 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/Fermentor"
+                   target="_blank">
+
+                    <img src="fermentor.png">
+
+                </a>
+
+                <h3>Coffee Fermentor</h3>
+
+                <p>
+                    Raspberry Pi 4 project running Ubuntu Linux
+                    for helping coffee agronomy workers automate
+                    fermentation-related processes.
+                </p>
+
+            </div>
+
+            <!-- ===== PROJECT 4 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/ResiduosEnRios"
+                   target="_blank">
+
+                    <img src="model.jpg">
+
+                </a>
+
+                <h3>River Trash Detection Model</h3>
+
+                <p>
+                    AI-oriented object detection model focused on
+                    identifying contaminant waste in rivers for
+                    autonomous aquatic robot collection systems.
+                </p>
+
+            </div>
+
+            <!-- ===== PROJECT 5 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/DataStructures-Hotel-register-system"
+                   target="_blank">
+
+                    <img src="hotel.png">
+
+                </a>
+
+                <h3>Hotel Registration System</h3>
+
+                <p>
+                    Hotel guest registration system developed in C++
+                    with a simple HTML/CSS interactive interface for
+                    managing rooms and customer records.
+                </p>
+
+            </div>
+
+            <!-- ===== PROJECT 6 ===== -->
+
+            <div class="project">
+
+                <a href="https://github.com/InesLlergo/Library-Registration-System"
+                   target="_blank">
+
+                    <img src="library.png">
+
+                </a>
+
+                <h3>Library Registration System</h3>
+
+                <p>
+                    Material registration and notification system
+                    developed with graphical libraries for managing
+                    loans, quotes, and library resources.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== EXTRAS ===== -->
+
+<section id="extras" class="section">
+
+    <div class="extras-wrapper">
+
+        <h2 class="extras-title">
+            Extras
+        </h2>
+
+        <div class="game-container">
+
+            <h2 style="font-size:14px; margin-bottom:15px;">
+                [ HANGED MAN: LEVEL
+                <span id="levelNum">1</span> ]
+            </h2>
+
+            <svg id="hangman-svg" viewBox="0 0 100 100">
+
+                <line x1="10" y1="90" x2="90" y2="90" class="base" />
+                <line x1="30" y1="90" x2="30" y2="10" class="base" />
+                <line x1="30" y1="10" x2="70" y2="10" class="base" />
+                <line x1="70" y1="10" x2="70" y2="20" class="base" />
+
+                <circle cx="70" cy="30" r="10" id="part-1" />
+                <line x1="70" y1="40" x2="70" y2="70" id="part-2" />
+                <line x1="70" y1="45" x2="55" y2="60" id="part-3" />
+                <line x1="70" y1="45" x2="85" y2="60" id="part-4" />
+                <line x1="70" y1="70" x2="55" y2="85" id="part-5" />
+                <line x1="70" y1="70" x2="85" y2="85" id="part-6" />
+
+            </svg>
+
+            <div id="hintText"
+                 style="font-size:12px;
+                 margin-bottom:10px;
+                 color:#aaa;">
+            </div>
+
+            <div class="word-display"
+                 id="wordDisplay">
+            </div>
+
+            <div style="font-size:14px;">
+                HEARTS:
+                <span class="hearts"
+                      id="lives">
+                      10
+                </span>
+            </div>
+
+            <div id="inputArea"
+                 style="margin-top:20px;">
+
+                <input type="text"
+                       id="letterInput"
+                       maxlength="1"
+                       autofocus>
+
+            </div>
+
+            <div class="message"
+                 id="msg">
+            </div>
+
+            <button id="restartBtn"
+                    onclick="initGame()">
+
+                    RESTART
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== TECH ===== -->
+
+<section id="tech" class="section">
+
+    <div class="tech-wrapper">
+
+        <h2 class="tech-title">
+            Technologies
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skills-row">
+
+                <div class="skill-item">
+                    <img src="c++.png" class="skill-icon">
+                    <span>C++</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="database.png" class="skill-icon">
+                    <span>SQL</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="html.png" class="skill-icon">
+                    <span>HTML</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="Clang.png" class="skill-icon">
+                    <span>C</span>
+                </div>
+
+            </div>
+
+            <div class="skills-row second-row">
+
+                <div class="skill-item">
+                    <img src="c-sharp.png" class="skill-icon">
+                    <span>C#</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="python.png" class="skill-icon">
+                    <span>Python</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="css.png" class="skill-icon">
+                    <span>CSS</span>
+                </div>
+
+                <div class="skill-item">
+                    <img src="raspberry.png" class="skill-icon">
+                    <span>Raspberry Pi</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== CONTACT ===== -->
+
+<section id="contact" class="section">
+
+    <div class="contact-content">
+
+        <h2 class="contact-title">
+            Contact
+        </h2>
+
+        <div class="contact-links">
+
+            <a href="mailto:normaines.llergo@gmail.com"
+               class="contact-link">
+
+                <img src="envelope.png"
+                     class="contact-icon">
+
+                <span>
+                    normaines.llergo@gmail.com
+                </span>
+
+            </a>
+
+            <a href="https://linkedin.com/in/inés-llergo"
+               target="_blank"
+               class="contact-link">
+
+                <img src="business.png"
+                     class="contact-icon">
+
+                <span>
+                    linkedin.com/in/inés-llergo
+                </span>
+
+            </a>
+
+            <a href="https://github.com/InesLlergo"
+               target="_blank"
+               class="contact-link">
+
+                <img src="github.png"
+                     class="contact-icon">
+
+                <span>
+                    github.com/InesLlergo
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+const playlist = [
+
+{
+word: "impossible",
+hint: "HINT: The word has the letter 'm'"
+},
+
+{
+word: "littlestar",
+hint: "HINT: Something in the sky..."
+},
+
+{
+word: "chocolate cake",
+hint: "HINT: A delicious birthday pastry!"
+}
+
+];
+
+let currentLevel = 0;
+let word = "";
+let guessedLetters = [];
+let lives = 10;
+
+function initGame() {
+
+    word = playlist[currentLevel].word;
+
+    document.getElementById('hintText')
+    .innerText =
+    playlist[currentLevel].hint;
+
+    document.getElementById('levelNum')
+    .innerText =
+    currentLevel + 1;
+
+    guessedLetters = [' '];
+
+    lives = 10;
+
+    document.getElementById('msg').innerText = "";
+
+    document.getElementById('restartBtn')
+    .style.display = "none";
+
+    document.getElementById('inputArea')
+    .style.display = "block";
+
+    for(let i=1; i<=6; i++){
+
+        document.getElementById('part-'+i)
+        .style.display = "none";
+    }
+
+    updateDisplay();
+}
+
+function updateDisplay() {
+
+    let display = "";
+    let won = true;
+
+    for(let char of word){
+
+        if(guessedLetters.includes(char)){
+
+            display +=
+            (char === " "
+            ? "\u00A0\u00A0"
+            : char)
+            + " ";
+
+        } else {
+
+            display += "_ ";
+            won = false;
+        }
+    }
+
+    document.getElementById('wordDisplay')
+    .innerText = display;
+
+    document.getElementById('lives')
+    .innerText = lives;
+
+    const errors = 10 - lives;
+
+    if(errors >= 4)
+    document.getElementById('part-1')
+    .style.display = "block";
+
+    if(errors >= 5)
+    document.getElementById('part-2')
+    .style.display = "block";
+
+    if(errors >= 6)
+    document.getElementById('part-3')
+    .style.display = "block";
+
+    if(errors >= 7)
+    document.getElementById('part-4')
+    .style.display = "block";
+
+    if(errors >= 8)
+    document.getElementById('part-5')
+    .style.display = "block";
+
+    if(errors >= 9)
+    document.getElementById('part-6')
+    .style.display = "block";
+
+    if(won){
+
+        if(currentLevel < playlist.length - 1){
+
+            document.getElementById('msg')
+            .innerHTML =
+            "LEVEL CLEAR ✨";
+
+            currentLevel++;
+
+        } else {
+
+            document.getElementById('msg')
+            .innerHTML =
+            "YOU MASTERED THE GAME 🏆";
+
+            currentLevel = 0;
+        }
+
+        endSession();
+
+    } else if(lives <= 0){
+
+        document.getElementById('msg')
+        .innerText =
+        "GAME OVER";
+
+        endSession();
+    }
+}
+
+function endSession(){
+
+    document.getElementById('restartBtn')
+    .style.display = "inline-block";
+
+    document.getElementById('inputArea')
+    .style.display = "none";
+}
+
+document
+.getElementById('letterInput')
+.addEventListener('input', (e) => {
+
+    const char =
+    e.target.value.toLowerCase();
+
+    e.target.value = "";
+
+    if(!char.match(/[a-z]/)
+    || guessedLetters.includes(char))
+    return;
+
+    guessedLetters.push(char);
+
+    if(!word.includes(char))
+    lives--;
+
+    updateDisplay();
+});
+
+initGame();
+
+</script>
+
+</body>
+</html>
